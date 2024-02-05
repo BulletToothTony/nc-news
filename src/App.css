@@ -71,5 +71,6 @@ img:hover {
 /* Single Article page */
 .singleArticlePageDiv {
   display: flex;
+  flex-direction: column;
   justify-content: center;
 }
