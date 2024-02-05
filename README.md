@@ -14,6 +14,9 @@ Currently, two official plugins are available:
 
 ### Plan Screenshots
 
+![image](https://github.com/BulletToothTony/nc-news/assets/58192857/f77b2642-751a-4fef-80e4-8414195d875a)
+
+
 <img width="1698" alt="image" src="https://github.com/BulletToothTony/nc-news/assets/58192857/73310189-97b0-4adc-929e-60f37056c3df">
 <img width="1167" alt="image" src="https://github.com/BulletToothTony/nc-news/assets/58192857/48775827-82d4-4486-aa57-df292894d593">
 
