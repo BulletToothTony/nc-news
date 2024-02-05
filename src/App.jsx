@@ -5,6 +5,7 @@ import Header from './components/Header'
 
 import Navbar from "./components/Navbar"
 import ArticleList from './components/ArticleList'
+import SingleArticlePage from './pages/SingleArticlePage'
 
 function App() {
 
@@ -14,6 +15,8 @@ function App() {
       <Navbar />
     <Routes>
       <Route path="/" element = {<ArticleList/>}/>
+      <Route path="/articles/:id" element = {<SingleArticlePage/>}/>
+
     </Routes>
     </>
   )
