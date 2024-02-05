@@ -2,28 +2,18 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import SingleArticle from "./SingleArticle";
 import { Link } from "react-router-dom";
+import { getArticles } from "../utils/fetch";
+
 
 const ArticleList = () => {
     const [articles, setArticles] = useState([])
     const [isLoading, setIsLoading] = useState(true)
 
-    const getArticles = async () => {
-        const response = await axios.get('https://be-nc-news-fz91.onrender.com/api/articles/')
-
-
-        console.log(response.data)
-
-        setArticles(response.data.articles)
-
-        
-
-        setIsLoading(false)
-
-        
-    }
-
     useEffect(() => {
-        getArticles()
+        getArticles().then((response) => {
+            setArticles(response.data.articles)
+            setIsLoading(false)
+        })
     }, [])
 
     if (isLoading) return <p>Loading...</p>
