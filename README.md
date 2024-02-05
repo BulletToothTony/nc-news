@@ -13,3 +13,8 @@ Currently, two official plugins are available:
 
 
 ### Plan Screenshots
+
+<img width="1698" alt="image" src="https://github.com/BulletToothTony/nc-news/assets/58192857/73310189-97b0-4adc-929e-60f37056c3df">
+<img width="1167" alt="image" src="https://github.com/BulletToothTony/nc-news/assets/58192857/48775827-82d4-4486-aa57-df292894d593">
+
+<img width="1572" alt="image" src="https://github.com/BulletToothTony/nc-news/assets/58192857/ecc8615a-adc7-40dc-8bea-767c147e33b9">
