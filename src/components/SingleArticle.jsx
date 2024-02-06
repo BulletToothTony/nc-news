@@ -1,6 +1,20 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const SingleArticle = ({article, articleVoteHandler}) => {
+    const [disableUpButton, setDisableUpButton] = useState(false)
+    const [disabledDownButton, setDisabledDownButton] = useState(false)
+
+    const buttonUpDisableHandler = () => {
+        setDisableUpButton(true)
+        setDisabledDownButton(false)
+    }
+
+    const buttownDownDisableHandler = () => {
+        setDisabledDownButton(true)
+        setDisableUpButton(false)
+    }
+
     return (
         <div className="singleArticleDiv">
 
@@ -11,8 +25,8 @@ const SingleArticle = ({article, articleVoteHandler}) => {
             <p>Author: {article.author}</p>
             <p>Topic: {article.topic}</p>
             <p>votes: {article.votes}</p>
-            <button onClick={() => {articleVoteHandler(article.article_id, 'inc')}}>Vote up</button>
-            <button onClick={() => {articleVoteHandler(article.article_id, 'dec')}}>Vote down</button>
+            <button onClick={() => {articleVoteHandler(article.article_id, 'inc'), buttonUpDisableHandler()}} disabled={disableUpButton}>Vote up</button>
+            <button onClick={() => {articleVoteHandler(article.article_id, 'dec'), buttownDownDisableHandler()}} disabled={disabledDownButton}>Vote down</button>
             
             
         </div>
