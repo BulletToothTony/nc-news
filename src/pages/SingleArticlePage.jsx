@@ -51,7 +51,7 @@ const SingleArticlePage = () => {
         id={id}
         comments={comments}
       />
-      <CommentForm submitCommentHandler={submitCommentHandler} />
+      <CommentForm id={id} submitCommentHandler={submitCommentHandler} />
     </div>
   );
 };

@@ -19,6 +19,16 @@ export const getCommentByArticle = async(id) => {
     return response
 }
 
+export const getTopics = async() => {
+    const response = await newsAPI.get(`/topics`)
+    return response
+}
+
+export const getTopicsByTopicType = async(topic) => {
+    const response = await newsAPI.get(`/articles?topic=${topic}`)
+    return response
+}
+
 
 
 
