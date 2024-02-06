@@ -2,7 +2,9 @@ const CommentList = ({comments, id, deleteCommentHandler}) => {
 
     const currentAuthor = 'happyamy2016'
     return (
-        <div key={id}>
+        // <div key={id}>
+        <>
+        
         <h2>Comments</h2>
         {comments.map((comment) => {
             return(
@@ -15,7 +17,8 @@ const CommentList = ({comments, id, deleteCommentHandler}) => {
                 </div>
             ) 
         })}
-        </div>
+        </>
+       
         
     )
 }
