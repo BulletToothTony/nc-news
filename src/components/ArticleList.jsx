@@ -9,12 +9,18 @@ const ArticleList = () => {
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
+  const [dropdownValue, setDropdownValue] = useState()
+
+  const handleDropdownChange = (event) => {
+    setDropdownValue(event.target.value)
+  }
+
   useEffect(() => {
-    getArticles().then((response) => {
+    getArticles(dropdownValue).then((response) => {
       setArticles(response.data.articles);
       setIsLoading(false);
     });
-  }, []);
+  }, [dropdownValue]);
 
   if (isLoading) return <p>Loading...</p>;
 
@@ -42,6 +48,19 @@ const ArticleList = () => {
 
   return (
     <div className="articleListDiv">
+      <div>
+        <label>
+          Sort by
+          <select onChange={handleDropdownChange}>
+            <option value="votes">Votes</option>
+
+            {/* <option value="author">Author</option> */}
+
+            <option value="date">Date</option>
+          </select>
+        </label>
+      </div>
+
       {articles.map((article) => {
         return (
           <SingleArticle

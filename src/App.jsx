@@ -8,6 +8,7 @@ import ArticleList from './components/ArticleList'
 import SingleArticlePage from './pages/SingleArticlePage'
 import AllTopicsPage from './pages/AllTopicsPage'
 import SingleTopicPage from './pages/SingleTopicPage'
+import Error from './components/Error'
 
 function App() {
 
@@ -20,7 +21,7 @@ function App() {
       <Route path="/articles/:id" element = {<SingleArticlePage/>}/>
       <Route path="/topics" element={<AllTopicsPage/>}/>
       <Route path="/topics/:topictype" element={<SingleTopicPage/>}/>
-
+      <Route path="*" element={<Error error={{msg: 'Page not found!', status: 404}}/>}/>
     </Routes>
     </>
   )
