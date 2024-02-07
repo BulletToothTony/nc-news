@@ -6,16 +6,21 @@ import SingleArticleID from "../components/SingleArticleID";
 import CommentList from "../components/CommentList";
 import CommentForm from "../components/CommentForm";
 import { deleteCommentUtil } from "../utils/delete";
+import Error from "../components/Error";
 
 const SingleArticlePage = () => {
   const [singleArticle, setSingleArticle] = useState([]);
   const [comments, setComments] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState();
   const { id } = useParams();
   useEffect(() => {
     getArticleById(id).then((response) => {
       setSingleArticle(response.data);
       setIsLoading(false);
+    }).catch((err) => {
+      setError({msg: err.response.data.msg, status: err.response.status})
+      setIsLoading(false)
     });
     getCommentByArticle(id).then((response) => {
       setComments(response.data);
@@ -42,7 +47,11 @@ const SingleArticlePage = () => {
     deleteCommentUtil(id);
   };
 
+  const setErrorHandler = () => {
+
+  }
   if (isLoading) return <p>Loading...</p>;
+  if (error) return <Error error={error} />
   return (
     <div className="singleArticlePageDiv">
       <SingleArticleID article={singleArticle} />
