@@ -46,6 +46,15 @@ export const getTopicsByTopicType = async(topic) => {
     }
 }
 
+export const getAllUsers = async () => {
+    const response = await newsAPI.get(`/users`)
+    return response 
+}
+
+export const getSingleUser = async () => {
+    const response = await newsAPI.get(`/users/tickle122`)
+    return response 
+}
 
 
 

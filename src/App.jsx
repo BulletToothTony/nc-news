@@ -9,6 +9,8 @@ import SingleArticlePage from './pages/SingleArticlePage'
 import AllTopicsPage from './pages/AllTopicsPage'
 import SingleTopicPage from './pages/SingleTopicPage'
 import Error from './components/Error'
+import AllUsersPage from './pages/AllUsersPage'
+import SingleUserPage from './pages/SingleUserPage'
 
 function App() {
 
@@ -21,6 +23,9 @@ function App() {
       <Route path="/articles/:id" element = {<SingleArticlePage/>}/>
       <Route path="/topics" element={<AllTopicsPage/>}/>
       <Route path="/topics/:topictype" element={<SingleTopicPage/>}/>
+      <Route path="/users" element={<AllUsersPage/>}/>
+      <Route path="/users/:username" element={<SingleUserPage/>}/>
+
       <Route path="*" element={<Error error={{msg: 'Page not found!', status: 404}}/>}/>
     </Routes>
     </>
