@@ -1,8 +1,6 @@
-const CommentList = ({comments, id, deleteCommentHandler}) => {
+const CommentList = ({comments, id, deleteCommentHandler, user}) => {
 
-    const currentAuthor = 'happyamy2016'
     return (
-        // <div key={id}>
         <>
         
         <h2>Comments</h2>
@@ -13,7 +11,7 @@ const CommentList = ({comments, id, deleteCommentHandler}) => {
                     <p>{comment.body}</p>
                     <p>Author: {comment.author}</p>
                     <p>Votes: {comment.votes}</p>
-                    {currentAuthor === comment.author && <button onClick={() => {deleteCommentHandler(comment.comment_id)}}>Delete comment</button>}
+                    {user === comment.author && <button onClick={() => {deleteCommentHandler(comment.comment_id)}}>Delete comment</button>}
                 </div>
             ) 
         })}

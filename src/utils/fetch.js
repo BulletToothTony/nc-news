@@ -51,8 +51,8 @@ export const getAllUsers = async () => {
     return response 
 }
 
-export const getSingleUser = async () => {
-    const response = await newsAPI.get(`/users/tickle122`)
+export const getSingleUser = async (username) => {
+    const response = await newsAPI.get(`/users/${username}`)
     return response 
 }
 
