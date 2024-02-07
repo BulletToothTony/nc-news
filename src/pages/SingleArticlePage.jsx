@@ -8,12 +8,18 @@ import CommentForm from "../components/CommentForm";
 import { deleteCommentUtil } from "../utils/delete";
 import Error from "../components/Error";
 
+import { UserContext } from '../contexts/User'
+import { useContext } from 'react'
+
 const SingleArticlePage = () => {
   const [singleArticle, setSingleArticle] = useState([]);
   const [comments, setComments] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState();
   const { id } = useParams();
+
+  const {user} = useContext(UserContext)
+
   useEffect(() => {
     getArticleById(id).then((response) => {
       setSingleArticle(response.data);
@@ -59,6 +65,7 @@ const SingleArticlePage = () => {
         deleteCommentHandler={deleteCommentHandler}
         id={id}
         comments={comments}
+        user={user}
       />
       <CommentForm id={id} submitCommentHandler={submitCommentHandler} />
     </div>

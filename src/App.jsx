@@ -11,11 +11,13 @@ import SingleTopicPage from './pages/SingleTopicPage'
 import Error from './components/Error'
 import AllUsersPage from './pages/AllUsersPage'
 import SingleUserPage from './pages/SingleUserPage'
+import ChooseUser from './components/ChooseUser'
 
 function App() {
 
   return (
     <>
+      <ChooseUser />
     <Header title={"NC-NEWS"}/>
       <Navbar />
     <Routes>

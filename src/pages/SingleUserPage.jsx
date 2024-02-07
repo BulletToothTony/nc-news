@@ -6,11 +6,9 @@ const SingleUserPage = () => {
     const [singleUser, setSingleUser] = useState()
     const [isLoading, setIsLoading] = useState(true)
     const {username} = useParams();
-    console.log(username)
 
     useEffect(() => {
         getSingleUser(username).then((response) => {
-            console.log(response)
             setSingleUser(response.data)
             setIsLoading(false)
         })
