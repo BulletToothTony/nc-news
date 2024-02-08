@@ -37,7 +37,7 @@ const SingleArticlePage = () => {
     setComments([
       {
         article_id: id,
-        author: "happyamy2016",
+        author: user,
         body: body.commentBody,
         votes: 0,
       },
@@ -53,6 +53,10 @@ const SingleArticlePage = () => {
     deleteCommentUtil(id);
   };
 
+  // const editCommentHandler = (id) => {
+    
+  // }
+
   const setErrorHandler = () => {
 
   }
@@ -67,7 +71,7 @@ const SingleArticlePage = () => {
         comments={comments}
         user={user}
       />
-      <CommentForm id={id} submitCommentHandler={submitCommentHandler} />
+      <CommentForm user={user} id={id} submitCommentHandler={submitCommentHandler} />
     </div>
   );
 };

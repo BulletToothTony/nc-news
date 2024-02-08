@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { postComment } from "../utils/post";
 
-const CommentForm = ({ id, submitCommentHandler }) => {
+const CommentForm = ({ id, submitCommentHandler, user }) => {
   const [username, setUsername] = useState("");
   const [commentBody, setCommentBody] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -24,7 +24,7 @@ const CommentForm = ({ id, submitCommentHandler }) => {
     // optimistic rendering
     submitCommentHandler(id, body);
     // post request with username and body
-    postComment(id, body);
+    postComment(id, body, user);
 
     setIsSubmitted(true);
     setUsername("");
@@ -37,7 +37,7 @@ const CommentForm = ({ id, submitCommentHandler }) => {
       <br />
       <input
         required
-        value={username}
+        value={user}
         onChange={usernameHandler}
         type="text"
         id="username"
