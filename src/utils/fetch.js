@@ -25,6 +25,7 @@ export const getArticleById = async(id) => {
 
 export const getCommentByArticle = async(id) => {
     const response = await newsAPI.get(`/articles/${id}/comments`)
+    console.log(response)
     return response
 }
 
