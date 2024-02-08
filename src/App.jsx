@@ -13,25 +13,52 @@ import AllUsersPage from './pages/AllUsersPage'
 import SingleUserPage from './pages/SingleUserPage'
 import ChooseUser from './components/ChooseUser'
 import NewArticlePage from './pages/NewArticlePage'
+import { useContext, useEffect, useState } from 'react'
+import { getAllUsers } from './utils/fetch'
+import ChooseUserList from './components/ChooseUserList'
+import { UserContext } from './contexts/User'
 
 function App() {
+  const [login, setLogin] = useState(false)
+  const [users, setUsers] = useState([])
+
+  const {setUser} = useContext(UserContext)
+
+  useEffect(() =>{
+    getAllUsers().then((response) => {
+        setUsers(response.data)
+    })
+      },[])
+
+      const setUserHandler = (user) => {
+        console.log(user)
+        setLogin(user)
+        setUser(user)
+      }
+    
 
   return (
     <>
-      <ChooseUser />
+      {/* <ChooseUser /> */}
+      {login && <p>Logged in as: {login}</p>}
     <Header title={"NC-NEWS"}/>
       <Navbar />
-    <Routes>
-      <Route path="/" element = {<ArticleList/>}/>
-      <Route path="/articles/:id" element = {<SingleArticlePage/>}/>
-      <Route path="/topics" element={<AllTopicsPage/>}/>
-      <Route path="/topics/:topictype" element={<SingleTopicPage/>}/>
-      <Route path="/users" element={<AllUsersPage/>}/>
-      <Route path="/users/:username" element={<SingleUserPage/>}/>
-      <Route path="/new-article" element={<NewArticlePage />}/>
+      {/* {!login && users.map((user) => <p>{user.username}</p>)} */}
+      {!login && <ChooseUserList setUserHandler={setUserHandler} users={users}/>}
+      {login &&
+  <Routes>
+  <Route path="/" element = {<ArticleList/>}/>
+  <Route path="/articles/:id" element = {<SingleArticlePage/>}/>
+  <Route path="/topics" element={<AllTopicsPage/>}/>
+  <Route path="/topics/:topictype" element={<SingleTopicPage/>}/>
+  <Route path="/users" element={<AllUsersPage/>}/>
+  <Route path="/users/:username" element={<SingleUserPage/>}/>
+  <Route path="/new-article" element={<NewArticlePage />}/>
 
-      <Route path="*" element={<Error error={{msg: 'Page not found!', status: 404}}/>}/>
-    </Routes>
+  <Route path="*" element={<Error error={{msg: 'Page not found!', status: 404}}/>}/>
+</Routes>
+      }
+  
     </>
   )
 }

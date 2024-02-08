@@ -31,6 +31,8 @@ const SingleArticlePage = () => {
     });
     getCommentByArticle(id).then((response) => {
       setComments(response.data);
+    }).catch((err) =>{
+      setError({msg: err.response.data.msg, status: err.reponse.status})
     });
   }, []);
 

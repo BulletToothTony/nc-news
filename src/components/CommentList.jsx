@@ -7,8 +7,11 @@ const CommentList = ({comments, id, deleteCommentHandler, user}) => {
     const handleShowComments = () => {
         setShowComments(!showComments)
     }
+
+    if (comments.length === 0) return <p>No comments yet!</p>
+
     return (
-        <>
+        <div>
         
         <h2>Comments</h2>
 
@@ -29,7 +32,7 @@ const CommentList = ({comments, id, deleteCommentHandler, user}) => {
                 </div>
             ) 
         })}
-        </>
+        </div>
        
         
     )
