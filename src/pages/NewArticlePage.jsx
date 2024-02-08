@@ -9,16 +9,11 @@ const NewArticlePage = () => {
 
     const {user} = useContext(UserContext)
 
-    console.log(user)
-
     const onSubmitArticleHandler = (event, newArticle) => {
         event.preventDefault()
 
-        console.log(newArticle)
-
         postNewArticle(newArticle, user).catch((err) => {
-            console.log(err)
-            setError({msg: err.response.data.msg, status: err.response.status})
+            setError({msg: 'Invalid topic, please set to an existing one', status: err.response.status})
         })
 
         // when send the request include user and newArticle
