@@ -18,7 +18,7 @@ const AllUsersPage = () => {
     <div>
       {users.map((item) => {
         return (
-          <div>
+          <div key={item.username}>
             <h1>{item.username}</h1>
             <Link to={item.username}>
               <img src={item.avatar_url} alt={item.username} />

@@ -8,11 +8,11 @@ const Error = (props) => {
             <h2>{props.error.msg}</h2>
 
 
-            <Link to='/'>
+            {/* <Link to='/'>
                 
                 <button>Go Home</button>
             
-            </Link>
+            </Link> */}
         </div>
     )
 }

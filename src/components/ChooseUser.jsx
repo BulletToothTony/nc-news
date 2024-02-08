@@ -11,7 +11,7 @@ const ChooseUser = () => {
     return (
         <div>
         <label>
-          Sort by
+          Choose user:
           <select onChange={handleDropdownChange}>
             <option value="happyamy2016">happyamy2016</option>
 

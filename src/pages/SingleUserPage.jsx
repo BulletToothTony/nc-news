@@ -19,6 +19,7 @@ const SingleUserPage = () => {
         <div>
             <h1>{singleUser.username}</h1>
             <img src={singleUser.avatar_url} alt="" />
+            <p>{singleUser.name}</p>
         </div>
     )
 }
