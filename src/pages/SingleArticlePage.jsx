@@ -10,6 +10,7 @@ import Error from "../components/Error";
 
 import { UserContext } from '../contexts/User'
 import { useContext } from 'react'
+import { patchArticleVotes } from "../utils/patch";
 
 const SingleArticlePage = () => {
   const [singleArticle, setSingleArticle] = useState([]);
@@ -57,14 +58,29 @@ const SingleArticlePage = () => {
     
   // }
 
-  const setErrorHandler = () => {
+  const articleVoteHandler = async (id, direction) => {
+    let inc_votes;
 
-  }
+    if (direction === "inc") {
+      inc_votes = 1;
+    } else if (direction === "dec") {
+      inc_votes = -1;
+    }
+
+
+    setSingleArticle((currentArticle) => {
+      return {...currentArticle, votes: (currentArticle.votes += inc_votes)}
+    })
+
+    patchArticleVotes(id, direction);
+  };
+
+
   if (isLoading) return <p>Loading...</p>;
   if (error) return <Error error={error} />
   return (
     <div className="singleArticlePageDiv">
-      <SingleArticleID article={singleArticle} />
+      <SingleArticleID article={singleArticle} articleVoteHandler={articleVoteHandler}/>
       <CommentList
         deleteCommentHandler={deleteCommentHandler}
         id={id}
