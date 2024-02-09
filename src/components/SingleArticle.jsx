@@ -25,6 +25,8 @@ const SingleArticle = ({article, articleVoteHandler}) => {
             <p>Author: {article.author}</p>
             <p>Topic: {article.topic}</p>
             <p>votes: {article.votes}</p>
+            <p>date: {article.created_at}</p>
+            <p>comments: {article.comment_count}</p>
             <button onClick={() => {articleVoteHandler(article.article_id, 'inc'), buttonUpDisableHandler()}} disabled={disableUpButton}>Vote up</button>
             <button onClick={() => {articleVoteHandler(article.article_id, 'dec'), buttownDownDisableHandler()}} disabled={disabledDownButton}>Vote down</button>
             

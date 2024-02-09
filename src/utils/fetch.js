@@ -5,8 +5,16 @@ const newsAPI = axios.create({
 })
 
 export const getArticles = async(dropdownValue) => {
-    const response = await newsAPI.get(`/articles`, {params: {dropdownValue: dropdownValue}})
+    // const response = await newsAPI.get(`/articles`, {params: {dropdownValue: dropdownValue}})
+    const response = await newsAPI.get(`/articles`)
+
+    if (dropdownValue) {
+        const response = await newsAPI.get(`/articles?sort_by=${dropdownValue}`)
+        return response
+    }
     return response
+   
+    
 }
 
 export const getArticleById = async(id) => {
@@ -26,7 +34,6 @@ export const getArticleById = async(id) => {
 export const getCommentByArticle = async(id) => {
     try {
         const response = await newsAPI.get(`/articles/${id}/comments`)
-        console.log(response)
         return response
 
     }

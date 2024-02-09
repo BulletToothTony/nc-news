@@ -9,7 +9,7 @@ const ArticleList = () => {
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  const [dropdownValue, setDropdownValue] = useState()
+  const [dropdownValue, setDropdownValue] = useState('created_at')
 
   const handleDropdownChange = (event) => {
     setDropdownValue(event.target.value)
@@ -48,18 +48,21 @@ const ArticleList = () => {
 
   return (
     <div className="articleListDiv">
-      <div>
+      <div style={{width:"100%"}}>
         <label>
           Sort by
           <select onChange={handleDropdownChange}>
+          <option value="created_at">Date</option>
+
             <option value="votes">Votes</option>
 
-            {/* <option value="author">Author</option> */}
+            
 
-            <option value="date">Date</option>
+            <option value="comment_count">Comments</option>
           </select>
         </label>
       </div>
+ 
 
       {articles.map((article) => {
         return (

@@ -1,5 +1,4 @@
 const ChooseUserList = ({ users, setUserHandler }) => {
-  console.log(users);
   return (
     <div>
         <h2>Please choose a user to login as</h2>

@@ -13,6 +13,7 @@ const SingleArticleID = ({article, articleVoteHandler}) => {
         setDisabledDownButton(true)
         setDisableUpButton(false)
     }
+
     return (
         <div>
             <h1>{article.title}</h1>
