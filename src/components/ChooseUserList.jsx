@@ -3,7 +3,7 @@ const ChooseUserList = ({ users, setUserHandler }) => {
     <div>
         <h2>Please choose a user to login as</h2>
     
-    <div style={{display: "flex", flexWrap: "wrap"}}>
+    <div style={{display: "flex", flexWrap: "wrap", justifyContent: "center"}}>
         
       {users.map((user) => {
         return (

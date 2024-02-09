@@ -9,7 +9,7 @@ const ArticleList = () => {
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  const [dropdownValue, setDropdownValue] = useState('created_at')
+  const [dropdownValue, setDropdownValue] = useState('created_at&order=desc')
 
   const handleDropdownChange = (event) => {
     setDropdownValue(event.target.value)
@@ -52,13 +52,20 @@ const ArticleList = () => {
         <label>
           Sort by
           <select onChange={handleDropdownChange}>
-          <option value="created_at">Date</option>
+          <option value="created_at&order=asc">Date low to high</option>
 
-            <option value="votes">Votes</option>
+          <option value="created_at&order=desc">Date high to low</option>
+
+            <option value="votes&order=asc">Votes low to high</option>
+
+            <option value="votes&order=desc">Votes high to low</option>
 
             
 
-            <option value="comment_count">Comments</option>
+            <option value="comment_count&order=asc">Comments count low to high</option>
+
+            <option value="comment_count&order=desc">Comments count high to low</option>
+
           </select>
         </label>
       </div>
