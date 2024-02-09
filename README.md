@@ -2,6 +2,8 @@
 
 - [Link to live site](https://fe-news-fe.netlify.app/)
 
+    Allow a few minutes for the api server to start.
+
 ## About
 
 - This project is a full stack web application, the backend is hosted [here](https://github.com/BulletToothTony/be-nc-news). The front-end is written in react. The site allows users to make live requests, using fetch, post, patch and delete throughout the project. User's can see live changes on the site whenever they make a request using optimistic rendering.
